@@ -1,6 +1,7 @@
 package com.example.hanoc_000.countriesmaccabi.rest_countries_api;
 
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.example.hanoc_000.countriesmaccabi.control.GetCountriesListListener;
@@ -14,7 +15,9 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-
+/**
+ * A singleton type manager handling all API calls
+ */
 public class ApiManager {
     private static ApiManager instance;
     private final String TAG = "ApisManager";
@@ -36,7 +39,13 @@ public class ApiManager {
 
 //-------------------------------------------------------------------------------------------------
 
-    public void getAllCountriesList(String[] queryFilters, final GetCountriesListListener listener) {
+    /**
+     * Gets a list of all countries from RestCountries API.
+     *
+     * @param queryFilters: A list of desired fields of each country, that will be received with the response
+     * @param listener: A listener that notifies about the API response, or error if detected
+     */
+    public void getAllCountriesList(@NonNull String[] queryFilters, final GetCountriesListListener listener) {
 
         Subscriber<ArrayList<Country>> subscriber = new Subscriber<ArrayList<Country>>() {
             @Override
@@ -56,7 +65,7 @@ public class ApiManager {
             }
         };
 
-        String fieldsFiltersQuery = getStringFieldsQuery(queryFilters);
+        String fieldsFiltersQuery = getStringQuery(queryFilters);
 
         Single<ArrayList<Country>> getAllCountriesList =
                 restCountriesApi.getAllCountries(fieldsFiltersQuery);
@@ -69,6 +78,13 @@ public class ApiManager {
 
 //-------------------------------------------------------------------------------------------------
 
+    /**
+     * Gets the details of specific countries from RestCountries API.
+     *
+     * @param queryFilters: A list of desired fields of each country, that will be received with the response
+     * @param countriesCodes: A list of ISO 3166-1 country codes Represent the requested countries
+     * @param listener: A listener that notifies about the API response
+     */
     public void getCountriesDetailsList(String[] queryFilters, String[] countriesCodes
             , final GetCountriesListListener listener) {
 
@@ -90,8 +106,8 @@ public class ApiManager {
             }
         };
 
-        String fieldsFiltersQuery = getStringFieldsQuery(queryFilters);
-        String countriesCodesQuery = getCountriesCodesQuery(countriesCodes);
+        String fieldsFiltersQuery = getStringQuery(queryFilters);
+        String countriesCodesQuery = getStringQuery(countriesCodes);
 
         Single<ArrayList<Country>> getAllCountriesList =
                 restCountriesApi.getCountriesDetails(fieldsFiltersQuery, countriesCodesQuery);
@@ -104,43 +120,24 @@ public class ApiManager {
 
 //-------------------------------------------------------------------------------------------------
 
-    private String getStringFieldsQuery(String[] queryFilters) {
+    /**
+     * @param queryList: Could be a list of desired country fields, or a list of ISO 3166-1 country codes
+     * @return A query string, as requested by RestCountries APi
+     *
+     * Example1: ["borders", "nativeName", "flag"] --> borders;nativeName;flag .
+     * Example2: ["ISR", "SOL", "BRA"] --> ISR;SOL;BRA .
+     */
+    private String getStringQuery(@NonNull String[] queryList) {
         String queryFieldsFilters = "";
 
-        // TODO tests
-
-        if (queryFilters == null || queryFilters.length == 0) {
-
-        } else {
-            for (String queryFilter : queryFilters) {
-                queryFieldsFilters += ";" + queryFilter;
-            }
-
-            // Removing the first ";" char
-            queryFieldsFilters = queryFieldsFilters.substring(1);
+        for (String queryFilter : queryList) {
+            queryFieldsFilters += ";" + queryFilter;
         }
+
+        // Removing the first ";" char
+        queryFieldsFilters = queryFieldsFilters.substring(1);
 
         return queryFieldsFilters;
-    }
-//-------------------------------------------------------------------------------------------------
-
-    private String getCountriesCodesQuery(String[] countriesCodes) {
-        String countriesCodesQuery = "";
-
-        // TODO tests
-
-        if (countriesCodes == null || countriesCodes.length == 0) {
-
-        } else {
-            for (String countryCode : countriesCodes) {
-                countriesCodesQuery += ";" + countryCode;
-            }
-
-            // Removing the first ";" char
-            countriesCodesQuery = countriesCodesQuery.substring(1);
-        }
-
-        return countriesCodesQuery;
     }
 
 //-------------------------------------------------------------------------------------------------

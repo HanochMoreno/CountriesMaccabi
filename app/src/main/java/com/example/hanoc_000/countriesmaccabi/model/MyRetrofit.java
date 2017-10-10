@@ -13,7 +13,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * A wrapper to Retrofit with custom connection properties.
+ * A wrapper to Retrofit, using custom connection properties.
  */
 public class MyRetrofit {
 

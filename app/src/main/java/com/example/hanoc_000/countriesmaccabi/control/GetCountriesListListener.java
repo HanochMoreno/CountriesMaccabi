@@ -5,9 +5,8 @@ import com.example.hanoc_000.countriesmaccabi.model.Country;
 import java.util.ArrayList;
 
 /**
- * Created by Hanoc_000 on 10/10/2017.
+ * A listener notifies the RestCountries API delivered a response, or when API error has been detected.
  */
-
 public interface GetCountriesListListener {
     void onSuccess(ArrayList<Country> countriesList);
 

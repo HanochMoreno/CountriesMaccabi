@@ -98,6 +98,10 @@ public class BordersCountryActivity extends AppCompatActivity {
 
 //-------------------------------------------------------------------------------------------------
 
+    /**
+     * Updates the screen with the data received from the calling activity and RestCountries API
+     * @param hasBorders: determines whether to show a list of border countries, or a "no borders" message.
+     */
     private void updateUI(boolean hasBorders) {
         countryName_tv.setText(name);
         countryNativeName_tv.setText(nativeName);
