@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">CountriesMaccabi</string>
+    <string name="app_title">Countries Maccabi</string>
     <string name="loading_data">Loading Data</string>
     <string name="please_wait">Please wait</string>
     <string name="error_getting_data">Couldn\'t get countries List</string>
+    <string name="country_has_no_border_countries">This country has no border countries</string>
+    <string name="has_borders_with_the_following_countries">has borders with the following countries:</string>
 </resources>

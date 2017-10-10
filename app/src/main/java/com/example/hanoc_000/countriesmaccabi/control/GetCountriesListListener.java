@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by Hanoc_000 on 10/10/2017.
  */
 
-public interface GetAllCountriesListener {
+public interface GetCountriesListListener {
     void onSuccess(ArrayList<Country> countriesList);
 
     void onError(Throwable t);

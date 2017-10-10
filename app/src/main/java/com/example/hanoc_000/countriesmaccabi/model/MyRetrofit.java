@@ -1,7 +1,6 @@
 package com.example.hanoc_000.countriesmaccabi.model;
 
 
-import com.example.hanoc_000.countriesmaccabi.AppConsts;
 import com.example.hanoc_000.countriesmaccabi.rest_countries_api.RestCountriesApi;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,7 +12,12 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * A wrapper to Retrofit with custom connection properties.
+ */
 public class MyRetrofit {
+
+    public static final String REST_COUNTRIES_BASE_URL = "https://restcountries.eu/rest/v2/";
 
     private static Retrofit instance;
     private static RestCountriesApi restCountriesApi;
@@ -36,7 +40,7 @@ public class MyRetrofit {
                     .build();
 
             instance = new Retrofit.Builder()
-                    .baseUrl(AppConsts.REST_COUNTRIES_BASE_URL)
+                    .baseUrl(REST_COUNTRIES_BASE_URL)
                     .client(okHttpClient)
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson))

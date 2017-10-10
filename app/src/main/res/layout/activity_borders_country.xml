@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.example.hanoc_000.countriesmaccabi.view.BordersCountryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTitleBackground"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/flag_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/isr" />
+
+        <TextView
+            android:id="@+id/countryName_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="Country Name" />
+
+        <TextView
+            android:id="@+id/countryNativeName_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            tools:text="Country Native Name" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:gravity="left"
+        android:padding="6dp"
+        android:background="@color/colorTitleBackground2"
+        tools:text="Israel has borders with the following countries:" />
+
+    <ListView
+        android:id="@+id/borders_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:listitem="@layout/list_item"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/noBorderCountries_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="@string/country_has_no_border_countries"
+        android:textSize="30sp"
+        android:visibility="gone" />
+
+</LinearLayout>
