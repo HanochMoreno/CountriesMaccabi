@@ -7,7 +7,7 @@
     tools:context="com.example.hanoc_000.countriesmaccabi.view.MainActivity">
 
     <ListView
-        android:id="@+id/countriesList"
+        android:id="@+id/countries_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/list_item"/>

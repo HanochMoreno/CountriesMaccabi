@@ -39,6 +39,18 @@ public class Country {
      * Represented in ISO 3166-1 3-letters country code.
      */
     public String[] borders;
+
+    public Country(String alpha3Code, String name, String nativeName, String flagUrl) {
+        this(alpha3Code, name, nativeName, flagUrl, null);
+    }
+
+    public Country(String alpha3Code, String name, String nativeName, String flagUrl, String[] borders) {
+        this.alpha3Code = alpha3Code;
+        this.name = name;
+        this.nativeName = nativeName;
+        this.flagUrl = flagUrl;
+        this.borders = borders;
+    }
 }
 
 /*  RESPONSE EXAMPLE:

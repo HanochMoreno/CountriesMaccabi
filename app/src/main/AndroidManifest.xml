@@ -19,10 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.BordersCountryActivity"
+            android:name=".view.CountryBordersActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
+        <activity android:name=".view.MyActivity"/>
     </application>
 
 </manifest>

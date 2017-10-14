@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.example.hanoc_000.countriesmaccabi.view.BordersCountryActivity">
+    tools:context="com.example.hanoc_000.countriesmaccabi.view.CountryBordersActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +54,7 @@
         tools:text="Israel has borders with the following countries:" />
 
     <ListView
-        android:id="@+id/borders_lv"
+        android:id="@+id/countries_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"

@@ -1,7 +1,6 @@
 package com.example.hanoc_000.countriesmaccabi.model;
 
 
-import com.example.hanoc_000.countriesmaccabi.rest_countries_api.RestCountriesApi;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -20,7 +19,6 @@ public class MyRetrofit {
     public static final String REST_COUNTRIES_BASE_URL = "https://restcountries.eu/rest/v2/";
 
     private static Retrofit instance;
-    private static RestCountriesApi restCountriesApi;
 
     private MyRetrofit(){}
 
@@ -48,14 +46,5 @@ public class MyRetrofit {
         }
 
         return instance;
-    }
-
-//-------------------------------------------------------------------------------------------------
-
-    public static RestCountriesApi getRestCountriesApi() {
-        if (restCountriesApi == null) {
-            restCountriesApi = getInstance().create(RestCountriesApi.class);
-        }
-        return restCountriesApi;
     }
 }

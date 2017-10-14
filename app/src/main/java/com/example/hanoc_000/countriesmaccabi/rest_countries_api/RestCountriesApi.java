@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 import rx.Single;
 
 /**
- * Interface for create connection to RestCountries API with Retrofit.
+ * Interface for creating a connection to RestCountries API with Retrofit.
  */
 public interface RestCountriesApi {
 

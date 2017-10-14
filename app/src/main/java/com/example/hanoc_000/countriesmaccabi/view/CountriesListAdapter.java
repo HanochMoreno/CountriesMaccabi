@@ -114,7 +114,7 @@ public class CountriesListAdapter extends BaseAdapter {
      * An asynchronous task for downloading a country's flag image, with
      * the URL given from RestCountries API.
      *
-     * The downloaded image file is in .SVG format, so some manipulations should be made on it
+     * The downloaded image file is in .SVG format, therefore some manipulations should be made on it
      * before setting it into the ImageView
      */
     private class GetFlagFromUrl extends AsyncTask<Void, Void, Bitmap> {
