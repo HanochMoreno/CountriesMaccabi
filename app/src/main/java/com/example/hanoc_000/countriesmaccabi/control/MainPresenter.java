@@ -93,6 +93,7 @@ public class MainPresenter implements MainContract.Presenter {
         Subscriber<ArrayList<Country>> subscriber = new Subscriber<ArrayList<Country>>() {
             @Override
             public void onCompleted() {
+                view.onFetchDataCompleted();
             }
 
             @Override
